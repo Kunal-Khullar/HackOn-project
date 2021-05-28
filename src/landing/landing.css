@@ -1,0 +1,8 @@
+#gif1{
+    background: url("https://drive.google.com/file/d/1-9q0rodgboMsQUSvGBug5gmwsUDO7Ez3/view?usp=sharing") no-repeat center center;
+    background-size:cover;
+    height: 60rem;
+}
+html{
+    overflow-x: hidden;
+}
