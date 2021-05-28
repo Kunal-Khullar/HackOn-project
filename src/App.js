@@ -1,9 +1,16 @@
 import myfile from './csvjson.json'
 import {Magic} from 'magic-sdk';
 import {useEffect,useState} from 'react'
+import Login from './pages/auth/login'
 
 
-function App() {
+
+const App=()=>{
+
+// useEffect(() => {
+  
+
+// }, [input])
   // const [data,setData]=useState([]);
   // const getData=()=>{
   //   fetch('csvjson.json'
@@ -30,9 +37,7 @@ function App() {
   console.log(data)
   return (
     <div className="App">
-     {
-      //  data && data.length>0 && data.map((item)=><p>{item.about}</p>)
-     }
+    <Login/>
     </div>
   );
 }
