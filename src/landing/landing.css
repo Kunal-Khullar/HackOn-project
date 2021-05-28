@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');
 #img1{
-    width:80vh;
+    width:91vh;
     margin-left: 3rem;
     filter: drop-shadow(0.7);
 }
@@ -13,6 +13,7 @@ html{
     padding: 0.6rem;
     
 }
+
 .mr-auto{
     
     margin-right: 1rem !important;

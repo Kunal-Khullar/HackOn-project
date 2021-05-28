@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from '../pages/auth/login'
-import Landing from '../pages/landing/Landing'
+import Login from '../pages/auth/Login'
+import Landing from '../landing/Landing'
 const Navigator = () => {
     return (
         <div>
