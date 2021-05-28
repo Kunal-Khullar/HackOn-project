@@ -28,7 +28,7 @@ const Landing = () => {
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
               </Col>
               <Col id="gif1" className="col-md-7">
-                  <img src={mygif} ></img>
+              <img id="img1" src="https://firebasestorage.googleapis.com/v0/b/galleria-mart.appspot.com/o/24867-online-doctor-app.gif?alt=media&token=357979cf-0918-4803-964a-b2d9fbc6bb5e"></img>
                   
               </Col>
           </Row>
