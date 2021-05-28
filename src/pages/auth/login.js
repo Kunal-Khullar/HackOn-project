@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import {Magic} from 'magic-sdk';
+import {key} from '../../Key'
 const Login = () => {
-    const m = new Magic(process.env.MAGIC_API)
+    const m = new Magic(key)
     const [email,setEmail]=useState("");
     const login = async ()=>{
         console.log(email)
