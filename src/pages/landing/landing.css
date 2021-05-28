@@ -1,10 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');
 #img1{
-    width:80vh
+    width:80vh;
+    margin-left: 3rem;
+    filter: drop-shadow(0.7);
+}
 
-}
-#gif1{
-    text-align:center
-}
 html{
     overflow-x: hidden;
+}
+.navbar{
+    background-color:#fff !important;
+    padding: 0.6rem;
+    
+}
+.mr-auto{
+    
+    margin-right: 1rem !important;
+    width:32rem;
+    margin-left: 45rem;
+    justify-content: space-evenly;
+}
+.mr-auto a{
+    font-weight: bold;
+    color:black  !important;
+}
+.mr-auto a,.mr-auto button{
+    
+    font-family: 'Poppins';
+    font-size: 1.1rem;
+}
+.mr-auto a:hover{
+    color: #3f35c1 !important;
+}
+.mybtn{
+    width:6rem !important;
+    color: white !important;
+    font-weight: 800;
+    letter-spacing:1.3px;
+    transition: background-color 500ms ease-in-out;
+    background-color: #3f35c1 !important;
+    border: 1px solid #3f35c1 !important;
+}
+.mybtn:hover{
+    color: white !important;
+    background-color:  #ff58c1 !important;
+    border:1px solid  #ff58c1 !important;
+}
+.info{
+    font-family: 'Poppins';
+    width:75%;
+    margin: auto;
+    margin-right: -0.4rem;
+    text-align:center;
+    text-shadow: 0.8px 0.8px 1px ;
+}
+.info h2{
+    /* text-align: justify;
+     */
+     transform: scale(1.5);
+     color: #221d6acf;
+    font-family: 'Lato' !important;
+    margin-top: 4.3rem;
+    padding-bottom: 1.5rem;
+    font-size: 3rem !important;font-weight: bolder;
+}
+.info p{
+    text-align:justify;
+    padding: 1rem;
+    line-height:1.6rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.info button{
+    width:8rem !important;
+    font-weight: 800;
+    letter-spacing:1.3px;
+    height:2.8rem;
+    text-align:center;
+    font-family: 'Poppins';
+    margin-top: 1rem;
 }

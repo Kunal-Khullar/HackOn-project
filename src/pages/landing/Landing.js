@@ -14,20 +14,23 @@ const Landing = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">About</Nav.Link>
-            <Nav.Link href="#link">Sign Up</Nav.Link>
-            <Button className='secondary'>Log In</Button>
+            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="/signup">Sign Up</Nav.Link>
+            <Button className='mybtn'>Log In</Button>
           </Nav>
         
         </Navbar.Collapse>
       </Navbar>
       <div className="main">
           <Row>
-              <Col className="col-md-5">
-                  <h2>Gaymax</h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-              </Col>
-              <Col id="gif1" className="col-md-7">
+              <Col className="col-md-6">
+                <div className="info">
+                <h2>Gaymax</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be the industry's standard dummy text ever since the 1500s,</p>
+             <Button className="mybtn">Register</Button>
+                </div>
+                   </Col>
+              <Col id="gif1" className="col-md-6">
               <img id="img1" src="https://firebasestorage.googleapis.com/v0/b/galleria-mart.appspot.com/o/24867-online-doctor-app.gif?alt=media&token=357979cf-0918-4803-964a-b2d9fbc6bb5e"></img>
                   
               </Col>
