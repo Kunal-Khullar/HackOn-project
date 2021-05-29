@@ -55,3 +55,132 @@ mutation AddMeal(
     }
   }
 `;
+export const ADD_WATER = gql`
+mutation addWater(
+  $email:String,
+  $glass:Int
+){
+  addWater(
+    email:$email,
+  	glass:$glass
+  ){
+    water{
+      quantitylitre
+    }
+  
+  }
+}
+`
+export const ADD_SLEEP = gql`
+mutation addSleep(
+  $email:String,
+  $sleephours:Int
+){
+  addSleep(
+    email:$email,
+  	sleephours:$sleephours
+  ){
+    newsleep{
+      sleephours
+    }
+  
+  }
+}
+`
+export const ADD_CH = gql`
+mutation addCh(
+  $email:String,
+  $cholestrollevel:Float
+){
+  addCh(
+    email:$email,
+  	cholestrollevel:$cholestrollevel
+  ){
+    newch{
+      cholestrollevel
+    }
+  
+  }
+}
+`
+export const ADD_SPO2 = gql`
+mutation addSPO2(
+  $email:String,
+  $level:Int
+){
+  addSpo2(
+    email:$email,
+  	level:$level
+  ){
+    newlevel{
+      level
+    }
+  }
+}
+`
+export const GET_ME = gql`
+query getMe(
+  $email:String!
+){
+  getMe(email:$email){
+    name
+  }
+}
+`
+export const GET_MEAL = gql`
+query mealData(
+  $email:String!
+){
+  getUserMealData(email:$email){
+    mealName
+  }
+}
+`
+export const GET_WATER = gql`
+query getWater(
+  $email:String!
+){
+  getUserWaterData(email:$email){
+    quantitylitre
+  }
+}
+`
+export const GET_BP = gql`
+query getBPData(
+  $email:String!
+){
+  getUserBPData(email:$email){
+    systolic,
+    diastolic
+  }
+}
+`
+export const GET_SLEEP = gql`
+query getSleep(
+  $email:String!
+){
+  getUserSleepData(email:$email){
+    sleephours
+  }
+}
+`
+export const GET_CH = gql`
+query getCh(
+  $email:String!
+){
+  getUserChData(email:$email){
+    cholestrollevel
+      
+    
+  }
+}
+`
+export const GET_SPO = gql`
+query getSpo2(
+  $email:String!
+){
+  getUserSPO2Data(email:$email){
+    level
+  }
+}
+`
