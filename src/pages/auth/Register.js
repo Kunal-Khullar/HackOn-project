@@ -1,20 +1,26 @@
 import React, { useState } from "react";
-import { Magic } from "magic-sdk";
-import { key } from "../../Key";
 import {Button,Form} from "react-bootstrap";
 import "./register.css";
+import { useMutation, gql } from '@apollo/client';
+import {CREATE_USER} from '../../graphql/requests'
+ 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const m = new Magic(key);
+  const [
+    createUser,
+    { data: userData, loading: loadingUser, error: loadingError },
+  ] = useMutation(CREATE_USER, {
+    variables: {
+      email,
+      name,
+    },
+  });
 
   const register = async () => {
     console.log(email);
-    try {
-      await m.auth.loginWithMagicLink({ email: email });
-    } catch {
-      // Handle errors if required!
-    }
+    const { data } = await createUser();
+    console.log(data);
   };
  
   return (

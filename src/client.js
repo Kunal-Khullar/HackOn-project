@@ -3,7 +3,7 @@ import { cache } from "./graphql/cache";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+  uri: "https://health-prediction-backend.herokuapp.com/graphql/",
 });
 
 const getToken = async () => {

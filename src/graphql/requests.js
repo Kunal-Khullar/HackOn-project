@@ -1,9 +1,11 @@
 import { gql } from "@apollo/client";
-export const DEMO_QUERY = gql`
-query GetExchangeRates {
-    rates(currency: "USD") {
-      currency
-      rate
+export const CREATE_USER = gql`
+mutation CreateUser($email:String!,$name:String!){
+    createUser(email:$email,name:$name){
+      user{
+        id
+        name
+      }
     }
   }
 `;
