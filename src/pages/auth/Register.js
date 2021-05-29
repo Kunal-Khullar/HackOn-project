@@ -3,7 +3,7 @@ import {Button,Form} from "react-bootstrap";
 import "./register.css";
 import { useMutation, gql } from '@apollo/client';
 import {CREATE_USER} from '../../graphql/requests'
- 
+import { OAuthExtension } from '@magic-ext/oauth';
 const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -55,7 +55,7 @@ const Register = () => {
           placeholder="Email" />
             </Form.Group>
             <Form.Group>
-            <Form.Label id="formlab">Enter Name</Form.Label>
+     
               <Form.Control type="text"value={name}
           onChange={(t) => setName(t.target.value)}
           placeholder="Name" />

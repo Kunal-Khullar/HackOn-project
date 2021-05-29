@@ -3,10 +3,42 @@ import { Magic } from "magic-sdk";
 import { key } from "../../Key";
 import {Button,Form} from "react-bootstrap";
 import "./login.css";
+import { OAuthExtension } from '@magic-ext/oauth';
 const Login = () => {
-
+  const magic = new Magic(key, {
+    extensions: [new OAuthExtension()],
+  });
   const m = new Magic(key);
+  const googlog = async ()=>{
+    try{
+      await magic.oauth.loginWithRedirect({
+        provider: 'google' ,
+        redirectURI: 'https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback',
+        // scope: ['user:email'], /* optional */
+        
+      });
+      const result = await magic.oauth.getRedirectResult();
+      console.log(result)
+    }
+    catch{
 
+    }
+  }
+  const fblog = async ()=>{
+    try{
+      await magic.oauth.loginWithRedirect({
+        provider: 'facebook' ,
+        redirectURI: 'https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback',
+        // scope: ['user:email'], /* optional */
+        
+      });
+      const result2 = await magic.oauth.getRedirectResult();
+      console.log(result2)
+    }
+    catch{
+
+    }
+  }
   const login = async () => {
     console.log(email);
     try {
@@ -20,7 +52,7 @@ const Login = () => {
     <div id="back">
       <div className="center_card">
         <div className="google">
-          <Button className="goog">
+          <Button className="goog" onClick={()=>googlog()}>
             <img
               className="googe"
               src="https://img.icons8.com/fluent/48/000000/google-logo.png"
@@ -30,7 +62,7 @@ const Login = () => {
          
         </div>
         <div className="google" id="g2">
-        <Button className="goog">
+        <Button className="goog" onClick={()=>fblog()}>
             <img
               className="googe"
               src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/>
