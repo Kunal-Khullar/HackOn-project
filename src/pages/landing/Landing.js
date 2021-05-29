@@ -28,7 +28,7 @@ const Landing = () => {
           <Row>
               <Col className="col-md-6">
                 <div className="info">
-                <h2>Gaymax</h2>
+                <h2>WeCare</h2>
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be the industry's standard dummy text ever since the 1500s,</p>
             <Button className="mybtn">Register</Button>
                 </div>
