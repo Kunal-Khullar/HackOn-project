@@ -1,9 +1,22 @@
-#i1 h6{
+#i1 h6,#i2 h6{
     padding: 1rem;
     cursor: pointer;
     font-family: 'Poppins';
+    margin-bottom: 0;
+    margin-left: 10px;
 }
-#i1 h6:hover{
+.backg{
+    background-color: rgba(238, 238, 238, 0.829) !important;
+}
+#i1,#i2{
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    margin-right: 0 !important;
+    margin-left: 0;
+    
+}
+#i1 h6:hover,#i2 h6:hover{
     background: rgba(238, 238, 238, 0.829);
 }
 .graph_container h2{
@@ -11,11 +24,28 @@
     font-size: 2.3rem;
     font-weight: bold;
     padding: 2rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
 }
 #leftgraphs{
     border-radius: 1rem;
+    padding-right: 0;
+    box-shadow: 1px 1px 10px 0.1px #ddd;
+    padding-left: 0;
     border: 1px solid ;
-    margin-left: 3rem;
-    margin-top: 1rem;
+    margin-left: 4rem;
+    margin-top: .1rem;
+    height:60vh;
+    margin-right: 2rem;
+}
+#rightgraphs{
+    border-radius: 1rem;
+    padding-right: 0;
+    padding-left: 0;
+    border: 1px solid ;
+    margin-right: 4rem;
+    box-shadow: 1px 1px 10px 0.1px #ddd;
+    margin-left: 2rem;
+    margin-top: .1rem;
     height:60vh
 }

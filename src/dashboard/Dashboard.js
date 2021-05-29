@@ -28,12 +28,9 @@ const Dashboard = () => {
                         <Row>
                            
                             <Col className='col-md-12'>
-                                {/* <Food></Food> */}
+                                <Food></Food>
                                 <Graph></Graph>
-                                {/* <Route exact path="/" component={Food}></Route>
-                                <Route exact path="/graph" component={Graph}></Route>
-                                <Route exact path="/pred" component={Prediction}></Route> */}
-
+                              
                             </Col>
                         </Row>
                     </div>

@@ -6,7 +6,7 @@ const Graph = () => {
     return (
         <div>
            <div className='graph_container'>
-               <h2>Your Monthly Diet Analytics</h2>
+               <h2>Your Monthly Diet and Routine Analytics</h2>
                <Row>
                    <Col id='leftgraphs'>
                    <Row id='i1'> 
@@ -19,7 +19,14 @@ const Graph = () => {
 
                    </div>
                    </Col>
-                   <Col id='rightgraphs'></Col>
+                   <Col id='rightgraphs'>
+                   <Row id='i2'> 
+                       <h6>Water Intake</h6>
+                       <h6>Sleep Cycle</h6>
+                       <h6>Nutrient</h6>
+                       <h6>Nutrient</h6>
+                   </Row>
+                   </Col>
                </Row>
            </div>
         </div>
