@@ -4,13 +4,31 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import { useMutation, gql } from '@apollo/client';
 import { ADD_MEAL } from '../../graphql/requests'
+import {Button,Form,Row,Col} from 'react-bootstrap'
+import './food.css'
 const Food = () => {
     const data = require('../../csvjson.json');
-
+    const [daytime,setTime] = useState("");
     const [sentData, setSentData] = useState(data[0]);
     const [water, setWater] = useState(0);
     var Calcium, Iron, Magnesium, Phosphorus, Potassium, Sodium, Zinc, carbs, email, fats, name, omega3, proteins, vitA, vitC, vitD, vitE;
-
+    const date = new Date();
+    if(date.getHours()>8&&date.getHours()<12)
+    { 
+        setTime("Breakfast")
+    }
+    else if(date.getHours()>=12&&date.getHours()<=16)
+    { 
+        setTime("Lunch")
+    }
+    else  if(date.getHours()>16&&date.getHours()<20)
+    { 
+        setTime("Evening Snacks")
+    }
+    else  if(date.getHours()>=20&&date.getHours()<=22)
+    { 
+        setTime("Dinner")
+    }
     const [
         addMeal,
         { data: meal, loading: loadingMeal, error: loadingError },
@@ -44,13 +62,21 @@ const Food = () => {
     };
     return (
         <div>
-            hi noob
+           <div className="foodintake">
+               <h2>Track Your Meals</h2>
+                <div className="mealtrack">
+                    <h4>Add {daytime}</h4>
+                </div>
+           </div>
             <div class='watercounters'>
-                <MButton onClick={() => setWater(water - 1)} variant="contained" color="primary">-</MButton>
-                {water}
-                <MButton onClick={() => setWater(water + 1)} variant="contained" color="primary">+</MButton>
+                <div id='waters'>
+                <MButton className='water' onClick={() => setWater(water - 1)} variant="contained" color="primary">-</MButton>
+                <h2>{water}</h2>
+                <MButton className='water' onClick={() => setWater(water + 1)} variant="contained" color="primary">+</MButton>
                 <br></br>
-                <h7>last record time 6:43:12</h7>
+               
+            </div>
+            <h7  id='last'>last record time 6:43:12</h7>
             </div>
             <div class="foodDropdown">
                 <Autocomplete
@@ -62,7 +88,7 @@ const Food = () => {
                     onChange={(event, newValue) => {
                         setSentData(newValue);
                     }}
-                    renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
+                    renderInput={(params) => <TextField {...params}  variant="outlined" />}
                 />
                 <MButton onClick={() => addMealAsync()} variant="contained" color="dark">ADD</MButton>
             </div>

@@ -1,0 +1,31 @@
+.water{
+    min-width: 0px !important;
+    width: 1rem !important;
+    height: 2rem;
+    background-color:#ffffff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid rgb(84, 84, 221) !important;
+
+}
+.water span{
+    color: blue;
+}
+.water:hover{
+    background-color:rgba(238, 234, 234, 0.452) !important;
+}
+#waters{
+   display: flex !important;
+   height: 2rem !important;
+   width: max-content;
+}
+#waters h2{
+    border: 1px solid;
+    height: 2rem;
+    padding: 0rem .5rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 400;
+    opacity: 80%;
+    border: 1px solid rgb(84,84,221);
+}
