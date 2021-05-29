@@ -5,12 +5,13 @@ import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
-
+import { useQuery, gql } from '@apollo/client';
+import {DEMO_QUERY} from '../../graphql/requests'
  
   
 const Landing = () => {
- 
+  const { data: demoData, loading: load, error: err } = useQuery(DEMO_QUERY);
+  console.log(demoData)
     return (
         <div>
         <Navbar bg="light" expand="lg">
