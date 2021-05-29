@@ -22,7 +22,7 @@ mutation AddMeal(
   $carbs:Float,
   $email:String,
   $fats:Float,
-  $name:Strign,
+  $name:String,
   $omega3:Float,
   $proteins:Float,
   $vitA:Float,

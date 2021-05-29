@@ -68,6 +68,7 @@ const Food = () => {
     });
 
   const addMealAsync = async () => {
+
     Calcium = parseFloat(sentData.calcium)
     Iron = parseFloat(sentData.irom)
     Magnesium = parseFloat(sentData.magnesium)
@@ -87,7 +88,28 @@ const Food = () => {
     console.log(sentData)
     console.log(Calcium, Iron, Potassium, Sodium, Zinc, carbs, fats, name, omega3, proteins, vitA, vitC, vitD, vitE)
     console.log(localStorage.getItem('email'))
-    const { data } = await addMeal();
+    const { data } = await addMeal({
+      variables: {
+        Calcium: Calcium,
+        Iron: Iron,
+        Magnesium: Magnesium,
+        Phosphorus: Phosphorus,
+        Potassium: Potassium,
+        Sodium: Sodium,
+        Zinc: Zinc,
+        carbs: carbs,
+        email: localStorage.getItem('email'),
+        fats: fats,
+        name: name,
+        omega3: omega3,
+        proteins: proteins,
+        vitA: vitA,
+        vitC: vitC,
+        vitD: vitD,
+        vitE: vitE,
+      }
+    });
+    console.log(data)
 
   };
   return (
