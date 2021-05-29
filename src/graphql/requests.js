@@ -133,6 +133,11 @@ query mealData(
 ){
   getUserMealData(email:$email){
     mealName
+    carbs
+    proteins
+    fats
+    vitA
+    date
   }
 }
 `
@@ -142,6 +147,7 @@ query getWater(
 ){
   getUserWaterData(email:$email){
     quantitylitre
+    date
   }
 }
 `
@@ -161,6 +167,7 @@ query getSleep(
 ){
   getUserSleepData(email:$email){
     sleephours
+    date
   }
 }
 `
