@@ -29,3 +29,43 @@
     opacity: 80%;
     border: 1px solid rgb(84,84,221);
 }
+.foodintake{
+    margin-left: 3rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 10px beige;
+    border: 1px solid #c59c57;
+    background: beige;
+}
+#mealadder{
+    background: #e0e79f87;
+    margin-top: 1rem;
+    box-shadow: 1px 1px 4px #c59c57;
+    text-transform: uppercase;
+}
+#mealadder:hover{
+    background:rgba(245, 245, 220, 0.479);
+}
+.foodintake {
+    padding:2rem
+}
+.watercounters{
+    width:60%;
+    margin: auto;
+    margin-top: 2rem;
+    height: 16.5rem;
+    background: #82abda;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid #4e4be9;
+    box-shadow: 1px 1px 10px #788faab6;
+}
+.foodintake h2{
+    font-size: 2.5rem;
+    font-family: 'Lato';
+    font-weight: bolder;
+padding-bottom: 2rem;
+}
+.mealtrack h4{
+    color: black !important;
+}
