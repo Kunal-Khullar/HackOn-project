@@ -39,9 +39,8 @@ const Food = () => {
     } else if (date.getHours() >= 20 && date.getHours() <= 22) {
       setTime("Dinner");
     }
-    else
-    {
-        setTime("Meal")
+    else {
+      setTime("Meal")
     }
   }, []);
 
@@ -56,7 +55,7 @@ const Food = () => {
         Sodium: Sodium,
         Zinc: Zinc,
         carbs: carbs,
-        email: email,
+        email: localStorage.getItem('email'),
         fats: fats,
         name: name,
         omega3: omega3,
@@ -69,8 +68,27 @@ const Food = () => {
     });
 
   const addMealAsync = async () => {
-    console.log(sentData);
-    // const { data } = await createUser();
+    Calcium = parseFloat(sentData.calcium)
+    Iron = parseFloat(sentData.irom)
+    Magnesium = parseFloat(sentData.magnesium)
+    Phosphorus = parseFloat(sentData.phosphorous)
+    Potassium = parseFloat(sentData.potassium)
+    Sodium = parseFloat(sentData.sodium)
+    Zinc = parseFloat(sentData.zink)
+    carbs = parseFloat(sentData.carbohydrate)
+    fats = parseFloat(sentData.fat)
+    name = sentData.name
+    omega3 = parseFloat(sentData.calories)
+    proteins = parseFloat(sentData.protein)
+    vitA = parseFloat(sentData.vitamin_a)
+    vitC = parseFloat(sentData.vitamin_c)
+    vitD = parseFloat(sentData.vitamin_d)
+    vitE = parseFloat(sentData.vitamin_e)
+    console.log(sentData)
+    console.log(Calcium, Iron, Potassium, Sodium, Zinc, carbs, fats, name, omega3, proteins, vitA, vitC, vitD, vitE)
+    console.log(localStorage.getItem('email'))
+    const { data } = await addMeal();
+
   };
   return (
     <div>
@@ -79,35 +97,35 @@ const Food = () => {
           <div className="foodintake">
             <h2>Track Your Meals</h2>
             <div className="mealtrack">
-              
-            <div class="foodDropdown">
-              <Autocomplete
-                id="combo-box-demo"
-                options={data}
-                getOptionLabel={(option) => option.name}
-                style={{ width: 300 }}
-                value={sentData}
-                onChange={(event, newValue) => {
-                  setSentData(newValue);
-                }}
-                renderInput={(params) => (
-                  <TextField {...params} variant="outlined" />
-                )}
-              />
-              <MButton id='mealadder'
-                onClick={() => addMealAsync()}
-                variant="contained"
-                color="dark"
-              >
-                Add {daytime}
-              </MButton>
+
+              <div class="foodDropdown">
+                <Autocomplete
+                  id="combo-box-demo"
+                  options={data}
+                  getOptionLabel={(option) => option.name}
+                  style={{ width: 300 }}
+                  value={sentData}
+                  onChange={(event, newValue) => {
+                    setSentData(newValue);
+                  }}
+                  renderInput={(params) => (
+                    <TextField {...params} variant="outlined" />
+                  )}
+                />
+                <MButton id='mealadder'
+                  onClick={() => addMealAsync()}
+                  variant="contained"
+                  color="dark"
+                >
+                  Add {daytime}
+                </MButton>
+              </div>
             </div>
-          </div>
           </div>
         </Col>
         <Col className="col-md-5" id="right">
           <div class="watercounters">
-              <h3>Add Glass</h3>
+            <h3>Add Glass</h3>
             <div id="waters">
               <MButton
                 className="water"

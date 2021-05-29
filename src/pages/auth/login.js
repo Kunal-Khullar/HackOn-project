@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Magic } from "magic-sdk";
 import { key } from "../../Key";
-import {Button,Form} from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "./login.css";
 import { OAuthExtension } from '@magic-ext/oauth';
 const Login = () => {
@@ -9,36 +9,36 @@ const Login = () => {
     extensions: [new OAuthExtension()],
   });
   // const m = new Magic(key);
-  const googlog = async ()=>{
-    
+  const googlog = async () => {
+
     try {
-    const res =  await magic.oauth.loginWithRedirect({
-        provider:'google',
+      const res = await magic.oauth.loginWithRedirect({
+        provider: 'google',
         redirectURI: new URL("/dashboard"),
       });
-      if(res)
-      { 
+      if (res) {
+
         window.location.href = '/dashboard'
       }
       console.log("Working")
-      
+
     } catch {
 
     }
     // console.log(res);
   }
-  const fblog = async ()=>{
-    try{
+  const fblog = async () => {
+    try {
       await magic.oauth.loginWithRedirect({
-        provider: 'facebook' ,
+        provider: 'facebook',
         redirectURI: 'https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback',
         // scope: ['user:email'], /* optional */
-        
+
       });
       const result2 = await magic.oauth.getRedirectResult();
       console.log(result2)
     }
-    catch{
+    catch {
 
     }
   }
@@ -46,7 +46,8 @@ const Login = () => {
     console.log(email);
     try {
       const result = await magic.auth.loginWithMagicLink({ email: email });
-      if(result) {
+      if (result) {
+        localStorage.setItem('email', email)
         window.location.href = '/dashboard'
       }
     } catch {
@@ -58,21 +59,21 @@ const Login = () => {
     <div id="back">
       <div className="center_card">
         <div className="google">
-          <Button className="goog" onClick={()=>googlog()}>
+          <Button className="goog" onClick={() => googlog()}>
             <img
               className="googe"
               src="https://img.icons8.com/fluent/48/000000/google-logo.png"
             />
             Sign In With Google
           </Button>
-         
+
         </div>
         <div className="google" id="g2">
-        <Button className="goog" onClick={()=>fblog()}>
+          <Button className="goog" onClick={() => fblog()}>
             <img
               className="googe"
-              src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/>
-            
+              src="https://img.icons8.com/fluent/48/000000/facebook-new.png" />
+
             Sign In With Facebook
           </Button>
         </div>
@@ -81,13 +82,13 @@ const Login = () => {
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label id="formlab">Sign In With Email</Form.Label>
-              <Form.Control type="email"value={email}
-          onChange={(t) => setEmail(t.target.value)}
-          placeholder="Email" />
+              <Form.Control type="email" value={email}
+                onChange={(t) => setEmail(t.target.value)}
+                placeholder="Email" />
             </Form.Group>
           </Form>
         </div>
-       
+
         <Button className="btn2" onClick={() => login()}>Login</Button>
       </div>
     </div>
