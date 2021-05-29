@@ -1,37 +1,38 @@
-import React, { useState } from "react";
+import React, {useCallback, useState } from "react";
 import { Magic } from "magic-sdk";
 import { key } from "../../Key";
 import { Button, Form } from "react-bootstrap";
 import "./login.css";
+import { useHistory } from "react-router";
 import { OAuthExtension } from '@magic-ext/oauth';
 const Login = () => {
+  const history = useHistory();
   const magic = new Magic(key, {
     extensions: [new OAuthExtension()],
   });
   // const m = new Magic(key);
-  const googlog = async () => {
+  const googlog = useCallback(async (provider) => {
 
     try {
       const res = await magic.oauth.loginWithRedirect({
         provider: 'google',
-        redirectURI: new URL("/dashboard"),
-      });
-      if (res) {
-
-        window.location.href = '/dashboard'
+        redirectURI: new URL("/callback",window.location.origin).href,
+      })
+      if(res)
+      {
+     history.push('/dashboard')
+      console.log(res)
       }
-      console.log("Working")
-
     } catch {
 
     }
     // console.log(res);
-  }
-  const fblog = async () => {
+  })
+  const fblog = useCallback(async () => {
     try {
       await magic.oauth.loginWithRedirect({
-        provider: 'facebook',
-        redirectURI: 'https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback',
+        provider: "facebook",
+        redirectURI:`${window.location.origin}/callback`
         // scope: ['user:email'], /* optional */
 
       });
@@ -41,7 +42,7 @@ const Login = () => {
     catch {
 
     }
-  }
+  })
   const login = async () => {
     console.log(email);
     try {
@@ -53,7 +54,7 @@ const Login = () => {
     } catch {
       // Handle errors if required!
     }
-  };
+  }
   const [email, setEmail] = useState("");
   return (
     <div id="back">

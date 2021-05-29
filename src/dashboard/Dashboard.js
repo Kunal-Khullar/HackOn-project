@@ -30,7 +30,7 @@ const Dashboard = () => {
                             <Col className='col-md-12'>
                                 <Food></Food>
                                 <Graph></Graph>
-                              
+                                <Prediction></Prediction>
                             </Col>
                         </Row>
                     </div>
