@@ -42,7 +42,10 @@ const Login = () => {
   const login = async () => {
     console.log(email);
     try {
-      await m.auth.loginWithMagicLink({ email: email });
+      const result = await m.auth.loginWithMagicLink({ email: email });
+      if(result) {
+        window.location.href = '/dashboard'
+      }
     } catch {
       // Handle errors if required!
     }
