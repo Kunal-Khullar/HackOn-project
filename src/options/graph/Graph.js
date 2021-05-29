@@ -2,17 +2,78 @@ import React, { useState, useEffect } from "react";
 import MButton from "@material-ui/core/Button";
 import { Button, Row, Col } from "react-bootstrap";
 import "./graph.css";
+import {useQuery} from '@apollo/client';
+import { GET_MEAL,GET_WATER,GET_SLEEP } from '../../graphql/requests'
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 const Graph = () => {
+  const [sGdata,setSGData]=useState([]);
+  const[gData,setGData]=useState([]);
   const [ref, setRef] = useState(React.createRef());
-  const GraphComp = () => {
+  const [ref2, setRef2] = useState(React.createRef());
+  const [sDate,setSDate]=useState([])
+  const {data:mealData}=useQuery(
+    GET_MEAL,{
+      variables:{
+        email:localStorage.getItem('email')
+      }
+    }
+  )
+  const {data:waterData}=useQuery(
+    GET_WATER,{
+      variables:{
+        email:localStorage.getItem('email')
+      }
+    }
+  )
+  const {data:sleepData}=useQuery(
+    GET_SLEEP,{
+      variables:{
+        email:localStorage.getItem('email')
+      }
+    }
+  )
+
+var sleepArr=[]
+var waterArr=[]
+var sleepDate=[]
+var waterDate=[]
+var carbArr=[]
+var vitArr=[]
+var fatArr=[]
+var protArr=[]
+var dateArr=[]
+if(sleepData){
+  sleepData.getUserSleepData.map((ele)=>{
+    sleepArr.push(ele.sleephours)
+    sleepDate.push(ele.date.slice(0,10))
+  })
+
+}
+if(waterData){
+  waterData.getUserWaterData.map((ele)=>{
+    waterArr.push(ele.quantitylitre)
+    waterDate.push(ele.date.slice(0,10))
+  })
+}
+  if(mealData){
+   mealData.getUserMealData.map((ele)=>{
+carbArr.push(ele.carbs)
+vitArr.push(ele.vitA)
+fatArr.push(ele.fats)
+protArr.push(ele.proteins)
+dateArr.push(ele.date.slice(0,10))
+   })
+
+}
+  const GraphComp = (props) => {
+    
     const data = {
-      labels: ["Protein", "Carbs", "Fats", "Vitamins", "Minerals","a","b","c"],
+      labels: dateArr,
       datasets: [
         {
           label: "My First Dataset",
-          data: [15, 12, 12, 11, 44,12,21,12],
+          data: props.data,
           backgroundColor: [
             "rgb(255, 99, 132)",
             "rgb(54, 162, 235)",
@@ -24,6 +85,7 @@ const Graph = () => {
       ],
     };
     useEffect(() => {
+      
       var myChart = new Chart(ref.current, {
         type: "bar",
         data: data,
@@ -43,6 +105,44 @@ const Graph = () => {
 
     return <canvas ref={ref} id="charts" width="220" height="120"></canvas>;
   };
+  const SecondGraphComp = (props) => {
+
+    const data = {
+      labels: props.date,
+      datasets: [
+        {
+          label: "My First Dataset",
+          data: props.data,
+          backgroundColor: [
+            "rgb(255, 99, 132)",
+            "rgb(54, 162, 235)",
+            "rgb(255, 205, 86)",
+            "green",
+            "orange",
+          ],
+        },
+      ],
+    };
+    useEffect(() => {
+      var myChart = new Chart(ref2.current, {
+        type: "bar",
+        data: data,
+        options: {
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+        },
+      });
+    }, []);
+
+    return <canvas ref={ref2} id="charts" width="220" height="120"></canvas>;
+  };
   return (
     <div>
       <div className="graph_container">
@@ -50,23 +150,38 @@ const Graph = () => {
         <Row>
           <Col id="leftgraphs">
             <Row id="i1">
-              <h6>Proteins</h6>
-              <h6>Carbs</h6>
-              <h6>Fats</h6>
-              <h6>Vitamins</h6>
+              <h6 onClick={()=>setGData(protArr)}>Proteins</h6>
+              <h6 onClick={()=>setGData(carbArr)}>Carbs</h6>
+              <h6 onClick={()=>setGData(fatArr)}>Fats</h6>
+              <h6 onClick={()=>setGData(vitArr)}>Vitamins</h6>
               <div></div>
             </Row>
             <div className="allgraphs">
-              <GraphComp></GraphComp>
+              <GraphComp data={gData}></GraphComp>
             </div>
           </Col>
           <Col id="rightgraphs">
             <Row id="i2">
-              <h6>Water Intake</h6>
-              <h6>Sleep Cycle</h6>
-              <h6>Nutrient</h6>
-              <h6>Nutrient</h6>
+              <h6 
+              onClick={()=>{
+                setSGData(waterArr)
+                setSDate(waterDate)
+              }}>
+                Water Intake
+              </h6>
+              <h6
+              onClick={()=>{
+                setSGData(sleepArr)
+                setSDate(sleepDate)
+              }}
+              >
+                Sleep Cycle
+                </h6>
+            
             </Row>
+            <div className="allgraphs">
+              <SecondGraphComp data={sGdata} date={sDate}></SecondGraphComp>
+            </div>
           </Col>
         </Row>
       </div>
