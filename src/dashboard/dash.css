@@ -1,0 +1,20 @@
+.mid_container{
+    position: absolute;
+    left:50%;
+    margin-left:-43% ;
+    width:86%;
+    top: 50%;
+    margin-top: -20rem;
+    background: white;
+    height: 40rem;
+}
+#main{
+    background: #82abda !important;
+    width:100%;
+    height: 100vh;
+}
+#left{
+    background: #2f6aad;
+    height: 40rem;
+    /* width:rem !important */
+}

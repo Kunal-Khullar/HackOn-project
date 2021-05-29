@@ -8,10 +8,11 @@ import Prediction from '../options/prediction/Prediction'
 const Dashboard = () => {
     return (
         <HashRouter>
+            <div>
         <div id='main'>
             <div className='mid_container'>
                 <Row>
-                    <Col className='col-md-4'>
+                    <Col id='left' className='col-md-4'>
                         <div className='welcome'></div>
                         <div className='navs'>
                             <NavLink exact to='/'>
@@ -40,7 +41,9 @@ const Dashboard = () => {
                 </Row>
             </div>
         </div>
+        </div>
         </HashRouter>
+        
     )
 }
 
