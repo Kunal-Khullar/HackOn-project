@@ -121,12 +121,14 @@ const Food = () => {
                 </MButton>
               </div>
             </div>
+            <h6>Last Input at: 5:00</h6>
           </div>
         </Col>
         <Col className="col-md-5" id="right">
           <div class="watercounters">
-            <h3>Add Glass</h3>
+            <h3 >Track Water Intake</h3>
             <div id="waters">
+              <h5>Add Glass</h5>
               <MButton
                 className="water"
                 onClick={() => setWater(water - 1)}
@@ -146,7 +148,7 @@ const Food = () => {
               </MButton>
               <br></br>
             </div>
-            <h7 id="last">last record time 6:43:12</h7>
+            <h7 id="last">Last Input at 6:43:12</h7>
           </div>
         </Col>
       </Row>
