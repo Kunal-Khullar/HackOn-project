@@ -11,19 +11,21 @@ const Login = () => {
   // const m = new Magic(key);
   const googlog = async ()=>{
     
-    try{
-      await magic.oauth.loginWithRedirect({
-        provider: 'google' ,
-        redirectURI: 'https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback',
-        // scope: ['user:email'], /* optional */
-        
+    try {
+    const res =  await magic.oauth.loginWithRedirect({
+        provider:'google',
+        redirectURI: new URL("/dashboard"),
       });
-      const result = await magic.oauth.getRedirectResult();
-      console.log(result)
-    }
-    catch{
+      if(res)
+      { 
+        window.location.href = '/dashboard'
+      }
+      console.log("Working")
+      
+    } catch {
 
     }
+    // console.log(res);
   }
   const fblog = async ()=>{
     try{
