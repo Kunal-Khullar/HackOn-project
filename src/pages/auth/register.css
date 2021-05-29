@@ -1,0 +1,88 @@
+#back{
+    background: url("https://cdn.dribbble.com/users/77121/screenshots/10205197/media/c5d367cd461b0fed5cd41995b6e86c10.gif") no-repeat center center;
+    background-size: cover;
+    height:100vh;
+
+}
+
+.center_card{
+    position: absolute;
+    left:50%;
+    width:26rem;
+    height: 34rem;
+    margin-left: -13rem;
+    top: 50%;margin-top: -15rem;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+/* border-radius: 10px; */
+/* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+    text-align: center;
+
+}
+.cred{
+    width:18rem;
+    margin-top: 2rem !important;
+    margin: auto;
+}
+.google{
+    margin-top: 3.7rem;
+}
+#g2{
+    margin-top: 1.5rem !important;
+}
+.goog{
+    background: white;
+    color: rgb(53, 53, 53);
+    width: 18rem;
+    
+    padding: .6rem;
+    font-size: 1.2rem;
+    align-items: center;
+    line-height: 1.7rem;
+    border: none;
+    font-weight: 600;
+    box-shadow: 1px 1px 10px 0.1px rgb(131, 131, 131);
+}
+.goog:hover{
+    background:rgba(238, 238, 238, 0.911);
+    box-shadow: none;
+    color: black;
+}
+.goog:focus{
+    background:white !important;
+    outline:none !important
+}
+h4{
+    color: white !important;
+    margin-top: 2.5rem;
+}
+.googe{
+    width:30px;
+    margin-right: 7px;
+    margin-top: -2px;
+}
+#formlab{
+    color: white !important;
+    font-size: 1rem;
+    font-size: 1rem;
+}
+.form-control{
+    font-size: 1.2rem;
+}
+.btn2{
+    width:18rem;
+    background: #1b6ac5e3;
+    height: 2.9rem !important;
+    border: 1px solid #1b6ac5e3;
+    color: white !important;
+    align-items: baseline;
+    transition: background-color 500ms linear;
+    transition: transform 200ms linear;
+}
+.btn2:hover{
+    background: rgba(175, 119, 15) !important;
+    border: none !important;transform: scale(1.1);
+}

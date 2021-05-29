@@ -19,7 +19,7 @@ const Landing = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="/signup">Sign Up</Nav.Link>
+            <Nav.Link href="/register">Sign Up</Nav.Link>
             <a href="/login"><Button className='mybtn'>Log In</Button></a>
           </Nav>
         

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Magic } from "magic-sdk";
 import { key } from "../../Key";
 import {Button,Form} from "react-bootstrap";
-import "./login.css";
-const Login = () => {
-
+import "./register.css";
+const Register = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const m = new Magic(key);
 
-  const login = async () => {
+  const register = async () => {
     console.log(email);
     try {
       await m.auth.loginWithMagicLink({ email: email });
@@ -15,7 +16,7 @@ const Login = () => {
       // Handle errors if required!
     }
   };
-  const [email, setEmail] = useState("");
+ 
   return (
     <div id="back">
       <div className="center_card">
@@ -25,7 +26,7 @@ const Login = () => {
               className="googe"
               src="https://img.icons8.com/fluent/48/000000/google-logo.png"
             />
-            Sign In With Google
+            Sign Up With Google
           </Button>
          
         </div>
@@ -35,25 +36,31 @@ const Login = () => {
               className="googe"
               src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/>
             
-            Sign In With Facebook
+            Sign Up With Facebook
           </Button>
         </div>
         <h4>OR</h4>
         <div className="cred">
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label id="formlab">Sign In With Email</Form.Label>
+              <Form.Label id="formlab">Sign Up With Email</Form.Label>
               <Form.Control type="email"value={email}
           onChange={(t) => setEmail(t.target.value)}
           placeholder="Email" />
             </Form.Group>
+            <Form.Group>
+            <Form.Label id="formlab">Enter Name</Form.Label>
+              <Form.Control type="text"value={name}
+          onChange={(t) => setName(t.target.value)}
+          placeholder="Name" />
+            </Form.Group>
           </Form>
         </div>
        
-        <Button className="btn2" onClick={() => login()}>Login</Button>
+        <Button className="btn2" onClick={() => register()}>Sign Up</Button>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
