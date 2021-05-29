@@ -142,8 +142,9 @@ const Food = () => {
                   Add {daytime}
                 </MButton>
               </div>
+              <h6>Last Input at: 5:00</h6>
             </div>
-            <h6>Last Input at: 5:00</h6>
+           
           </div>
         </Col>
         <Col className="col-md-5" id="right">
@@ -170,7 +171,7 @@ const Food = () => {
               </MButton>
               <br></br>
             </div>
-            <h7 id="last">Last Input at 6:43:12</h7>
+            <h6 id="last">Last Input at 6:43:12</h6>
           </div>
         </Col>
       </Row>
