@@ -1,0 +1,22 @@
+.bot p{
+    text-align: justify;
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+    font-family: 'Lato';
+    letter-spacing: 1px;
+    padding: 4rem;
+
+}
+.bot{
+    text-align: center;
+}
+.bot button{
+    width: 10rem;
+    height: 2.8rem;
+    margin-bottom: 2rem;
+    background: #36a2eb;
+    box-shadow: 1px 1px 5px 0.1px #12364e75;
+}
+.bot button:hover{
+    background-color: #0890eb85 !important;
+}
