@@ -7,6 +7,7 @@ import Food from '../options/food/Food'
 
 import Prediction from '../options/prediction/Prediction'
 const Dashboard = () => {
+
     return (
         <HashRouter>
             <div>
