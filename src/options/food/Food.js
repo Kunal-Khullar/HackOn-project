@@ -6,6 +6,7 @@ import { useMutation,useQuery, gql } from "@apollo/client";
 import { ADD_MEAL,ADD_SLEEP,ADD_WATER,GET_MEAL,GET_WATER,GET_SLEEP } from "../../graphql/requests";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./food.css";
+import { FormGroup } from "@material-ui/core";
 const Food = () => {
   const data = require("../../csvjson.json");
   const [daytime, setTime] = useState("");
@@ -170,8 +171,9 @@ dateArr.push(ele.date.slice(0,10))
     console.log(data)
 
   };
-  const AddSleepAsync = async ()=>{
+  const addSleepAsync = async ()=>{
     const {data}= await addSleep()
+    console.log(data)
   }
   const ChangeWaterAsync=async()=>{
     const { data } = await addWater();
@@ -180,9 +182,9 @@ dateArr.push(ele.date.slice(0,10))
   return (
     <div>
       <Row>
-        <Col id="left" className="col-md-7">
+        <Col id="left" className="col-md-4">
           <div className="foodintake">
-            <h2>Track Your Meals</h2>
+            <h3>Track Your Meals</h3>
             <div className="mealtrack">
 
               <div class="foodDropdown">
@@ -204,15 +206,32 @@ dateArr.push(ele.date.slice(0,10))
                   variant="contained"
                   color="dark"
                 >
-                  Add {daytime}
+                  Add {daytime} (100g)
                 </MButton>
               </div>
-              <h6 id="last">Last Input at {dateArr[dateArr.length-1]}</h6>
+              <h6 className="last">Last Input on {dateArr[dateArr.length-1]}</h6>
             </div>
            
           </div>
         </Col>
-        <Col className="col-md-5" id="right">
+        <Col >
+            <div id='midle'>
+               
+            <h3>Track Sleep</h3>
+            <div id='='i2>
+            <Form.Group controlId="formBasicEmail">
+            
+              <Form.Control type="number" value={sleephours}
+                onChange={(t) => setSleepHours(t.target.value)}
+                placeholder="Sleep Hours" />
+            </Form.Group>
+            <Button onClick={()=>addSleepAsync()} className="sleepbtn">ADD sleep</Button>
+            <h6 className="last">Last Input on {sleepDate[sleepDate.length-1]}</h6> 
+            </div>
+           
+            </div>
+        </Col>
+        <Col className="col-md-4" id="right">
           <div class="watercounters">
             <h3 >Track Water Intake</h3>
             <div id="waters">
@@ -240,7 +259,7 @@ dateArr.push(ele.date.slice(0,10))
               </MButton>
               <br></br>
             </div>
-            <h6 id="last">Last Input at {waterDate[waterDate.length-1]}</h6>
+            <h6 className="last">Last Input on {waterDate[waterDate.length-1]}</h6>
           </div>
         </Col>
       </Row>

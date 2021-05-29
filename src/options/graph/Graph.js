@@ -8,6 +8,8 @@ import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 const Graph = () => {
   const [sGdata,setSGData]=useState([]);
+  const [label,setLabel1]=useState("")
+  const [label2,setLabel2]=useState("")
   const[gData,setGData]=useState([]);
   const [ref, setRef] = useState(React.createRef());
   const [ref2, setRef2] = useState(React.createRef());
@@ -72,7 +74,7 @@ dateArr.push(ele.date.slice(0,10))
       labels: dateArr,
       datasets: [
         {
-          label: "My First Dataset",
+          label: props.label,
           data: props.data,
           backgroundColor: [
             "rgb(255, 99, 132)",
@@ -111,7 +113,7 @@ dateArr.push(ele.date.slice(0,10))
       labels: props.date,
       datasets: [
         {
-          label: "My First Dataset",
+          label: props.label,
           data: props.data,
           backgroundColor: [
             "rgb(255, 99, 132)",
@@ -150,14 +152,14 @@ dateArr.push(ele.date.slice(0,10))
         <Row>
           <Col id="leftgraphs">
             <Row id="i1">
-              <h6 onClick={()=>setGData(protArr)}>Proteins</h6>
-              <h6 onClick={()=>setGData(carbArr)}>Carbs</h6>
-              <h6 onClick={()=>setGData(fatArr)}>Fats</h6>
-              <h6 onClick={()=>setGData(vitArr)}>Vitamins</h6>
+              <h6 onClick={()=>{setLabel1("Proteins");setGData(protArr)}}>Proteins</h6>
+              <h6 onClick={()=>{setLabel1("Carbs");setGData(carbArr)}}>Carbs</h6>
+              <h6 onClick={()=>{setLabel1("Fats");setGData(fatArr)}}>Fats</h6>
+              <h6 onClick={()=>{setLabel1("Vitamins");setGData(vitArr)}}>Vitamins</h6>
               <div></div>
             </Row>
             <div className="allgraphs">
-              <GraphComp data={gData}></GraphComp>
+              <GraphComp label={label} data={gData}></GraphComp>
             </div>
           </Col>
           <Col id="rightgraphs">
@@ -166,6 +168,7 @@ dateArr.push(ele.date.slice(0,10))
               onClick={()=>{
                 setSGData(waterArr)
                 setSDate(waterDate)
+                setLabel2("Water Intake")
               }}>
                 Water Intake
               </h6>
@@ -173,6 +176,7 @@ dateArr.push(ele.date.slice(0,10))
               onClick={()=>{
                 setSGData(sleepArr)
                 setSDate(sleepDate)
+                setLabel2("Sleep Hours")
               }}
               >
                 Sleep Cycle
@@ -180,7 +184,7 @@ dateArr.push(ele.date.slice(0,10))
             
             </Row>
             <div className="allgraphs">
-              <SecondGraphComp data={sGdata} date={sDate}></SecondGraphComp>
+              <SecondGraphComp label = {label2}data={sGdata} date={sDate}></SecondGraphComp>
             </div>
           </Col>
         </Row>

@@ -44,6 +44,13 @@
     box-shadow: 1px 1px 4px #c59c57;
     text-transform: uppercase;
 }
+.sleepbtn{
+    background: #d095d2;
+    margin-top: 1.4rem;
+    box-shadow: 1px 1px 4px #7e5086;
+    text-transform: uppercase;
+    border: 0;
+}
 #mealadder:hover{
     background:rgba(245, 245, 220, 0.479);
 }
@@ -51,23 +58,36 @@
     padding:2rem
 }
 .watercounters{
-    width:60%;
+    /* width:60%; */
     margin: auto;
+    margin-right: 3rem;
     margin-top: 2rem;
-    height: 16.5rem;
+    height: 19.4rem;
     background: #82abda;
     border-radius: 1rem;
     padding: 2rem;
     border: 1px solid #4e4be9;
     box-shadow: 1px 1px 10px #788faab6;
 }
-.foodintake h2{
-    font-size: 2.5rem;
+#midle{
+    margin: 2rem 1.5rem 0rem 1.5rem;
+    height: 19.4rem;
+    background: #cda6d0;
+    border-radius: 1rem;
+    padding: 2rem;
+    padding-bottom: 3rem !important;
+    border: 1px solid #d04be9;
+    box-shadow: 1px 1px 10px #b269d9b6;
+    /* height: auto; */
+}
+
+.foodintake h3{
+    /* font-size: 1.5rem; */
     font-family: 'Lato';
     font-weight: bolder;
 padding-bottom: 1.8rem;
 }
-.watercounters h3{
+.watercounters h3,#midle h3{
     font-family: 'Lato';
     font-weight: bold;
     margin-top: 0.3rem;
@@ -80,13 +100,13 @@ padding-bottom: 1.8rem;
     padding-right: 20px;
 
 }
-#last{
+.last{
     margin-top: 2rem !important;
 }
 .mealtrack h4{
     color: black !important;
 }
-.mealtrack h6,#last{
+.mealtrack h6,.last{
     font-size: 1rem;
     width:70% !important    ;
     font-weight: 400;
@@ -95,6 +115,7 @@ padding-bottom: 1.8rem;
     margin-left: 0rem;
     opacity: 79%;
 }
-#last{
+
+.last{
     margin-left: .4rem;
 }
