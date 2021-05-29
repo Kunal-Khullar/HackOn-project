@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import MButton from "@material-ui/core/Button";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-import { useMutation, gql } from "@apollo/client";
-import { ADD_MEAL } from "../../graphql/requests";
+import { useMutation,useQuery, gql } from "@apollo/client";
+import { ADD_MEAL,ADD_SLEEP,ADD_WATER,GET_MEAL,GET_WATER,GET_SLEEP } from "../../graphql/requests";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./food.css";
 const Food = () => {
@@ -11,6 +11,7 @@ const Food = () => {
   const [daytime, setTime] = useState("");
   const [sentData, setSentData] = useState(data[0]);
   const [water, setWater] = useState(0);
+  const [sleephours,setSleepHours]=useState(0);
   var Calcium,
     Iron,
     Magnesium,
@@ -66,9 +67,66 @@ const Food = () => {
         vitE: vitE,
       },
     });
+  const [addWater, { data: waterData, loading: loadingWater, error: waterError }] =
+    useMutation(ADD_WATER, {
+      variables: {
+       email:localStorage.getItem('email'),
+       glass:water
+      },
+    });
+  const [addSleep, { data: sleepData, loading: loadingSleep, error: sleepError }] =
+    useMutation(ADD_SLEEP, {
+      variables: {
+       email:localStorage.getItem('email'),
+       sleephours:sleephours
+      },
+    });
+    const {data:mealData}=useQuery(
+      GET_MEAL,{
+        variables:{
+          email:localStorage.getItem('email')
+        }
+      }
+    )
+    const {data:waterQData}=useQuery(
+      GET_WATER,{
+        variables:{
+          email:localStorage.getItem('email')
+        }
+      }
+    )
+    const {data:sleepQData}=useQuery(
+      GET_SLEEP,{
+        variables:{
+          email:localStorage.getItem('email')
+        }
+      }
+    )
+var sleepArr=[]
+var waterArr=[]
+var sleepDate=[]
+var waterDate=[]
+var dateArr=[]
+if(sleepQData){
+  sleepQData.getUserSleepData.map((ele)=>{
+    sleepArr.push(ele.sleephours)
+    sleepDate.push(ele.date.slice(0,10))
+  })
 
+}
+if(waterQData){
+  waterQData.getUserWaterData.map((ele)=>{
+    waterArr.push(ele.quantitylitre)
+    waterDate.push(ele.date.slice(0,10))
+  })
+}
+if(mealData){
+  mealData.getUserMealData.map((ele)=>{
+dateArr.push(ele.date.slice(0,10))
+  })
+
+}
   const addMealAsync = async () => {
-
     Calcium = parseFloat(sentData.calcium)
     Iron = parseFloat(sentData.irom)
     Magnesium = parseFloat(sentData.magnesium)
@@ -112,6 +170,13 @@ const Food = () => {
     console.log(data)
 
   };
+  const AddSleepAsync = async ()=>{
+    const {data}= await addSleep()
+  }
+  const ChangeWaterAsync=async()=>{
+    const { data } = await addWater();
+    console.log(data);
+  }
   return (
     <div>
       <Row>
@@ -142,7 +207,7 @@ const Food = () => {
                   Add {daytime}
                 </MButton>
               </div>
-              <h6>Last Input at: 5:00</h6>
+              <h6 id="last">Last Input at {dateArr[dateArr.length-1]}</h6>
             </div>
            
           </div>
@@ -154,7 +219,10 @@ const Food = () => {
               <h5>Add Glass</h5>
               <MButton
                 className="water"
-                onClick={() => setWater(water - 1)}
+                onClick={() => {setWater(water - 1)
+                  ChangeWaterAsync()
+                
+                }}
                 variant="contained"
                 color="primary"
               >
@@ -163,7 +231,8 @@ const Food = () => {
               <h2>{water}</h2>
               <MButton
                 className="water"
-                onClick={() => setWater(water + 1)}
+                onClick={() => {setWater(water + 1)
+                  ChangeWaterAsync()}}
                 variant="contained"
                 color="primary"
               >
@@ -171,7 +240,7 @@ const Food = () => {
               </MButton>
               <br></br>
             </div>
-            <h6 id="last">Last Input at 6:43:12</h6>
+            <h6 id="last">Last Input at {waterDate[waterDate.length-1]}</h6>
           </div>
         </Col>
       </Row>
