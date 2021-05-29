@@ -8,8 +8,9 @@ const Login = () => {
   const magic = new Magic(key, {
     extensions: [new OAuthExtension()],
   });
-  const m = new Magic(key);
+  // const m = new Magic(key);
   const googlog = async ()=>{
+    
     try{
       await magic.oauth.loginWithRedirect({
         provider: 'google' ,
@@ -42,7 +43,7 @@ const Login = () => {
   const login = async () => {
     console.log(email);
     try {
-      const result = await m.auth.loginWithMagicLink({ email: email });
+      const result = await magic.auth.loginWithMagicLink({ email: email });
       if(result) {
         window.location.href = '/dashboard'
       }

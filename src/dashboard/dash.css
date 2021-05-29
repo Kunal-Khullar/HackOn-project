@@ -1,12 +1,13 @@
 .mid_container{
     position: absolute;
     left:50%;
-    margin-left:-43% ;
-    width:86%;
+    margin-left:-40% ;
+    width:80%;
     top: 50%;
     margin-top: -20rem;
     background: white;
     height: 40rem;
+    border-radius: 2rem;
 }
 #main{
     background: #82abda !important;
@@ -17,4 +18,57 @@
     background: #2f6aad;
     height: 40rem;
     /* width:rem !important */
+    padding: 0;
+    border-radius: 2rem;
+}
+.welcome{
+    height: 10rem;
+    padding-top: .6rem;
+    align-items: center;
+    text-orientation: upright;
+    border-bottom: 1px solid lightgray;
+}
+.welcome h2{
+    font-size: 2.2rem;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: #e7e7e7;
+    text-align: center;
+    margin-top: 2rem;
+    text-shadow: 1px 1px 3px #82abda;
+}
+.welcome h3{
+    font-family: 'Poppins';
+    font-size: 1.4rem;
+    font-weight: bolder;
+    color: #eaeaeaeb;
+    text-align: center;
+    text-shadow: 1px 1px 2px #2d2737;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.options h4{
+    margin: 0 !important;
+    padding: .8rem;
+    align-items: center;
+    opacity: 90%;
+    font-size: 1.1rem !important;
+    color: #f0ecf7 !important;
+}
+.options{
+    margin-top: 1rem;
+    /* border-bottom: 2px solid rgba(231, 231, 231, 0.466); */
+}
+.options:hover{
+    text-decoration: none !important;
+}
+.options h4:hover{
+    text-decoration: none;
+    background-color:rgba(236, 232, 232, 0.287);
+}
+.navs{
+    margin-top: 5rem;
+}
+#left a:hover{
+    text-decoration: none;
 }

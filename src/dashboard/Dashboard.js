@@ -13,7 +13,9 @@ const Dashboard = () => {
             <div className='mid_container'>
                 <Row>
                     <Col id='left' className='col-md-4'>
-                        <div className='welcome'></div>
+                        <div className='welcome'>
+                           
+                        </div>
                         <div className='navs'>
                             <NavLink exact to='/'>
                                 <div className='options'>
