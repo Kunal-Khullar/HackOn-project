@@ -16,7 +16,7 @@ const Login = () => {
     try {
       const res = await magic.oauth.loginWithRedirect({
         provider: 'google',
-        redirectURI: new URL("/callback",window.location.origin).href,
+        redirectURI: new URL('https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback'),
       })
       if(res)
       {
@@ -32,7 +32,7 @@ const Login = () => {
     try {
       await magic.oauth.loginWithRedirect({
         provider: "facebook",
-        redirectURI:`${window.location.origin}/callback`
+        redirectURI:'https://auth.magic.link/v1/oauth2/5Az5Oh82h0KV35kyBLvnE83XW7ixbMhawJX_aLZ-9Yk=/callback'
         // scope: ['user:email'], /* optional */
 
       });
