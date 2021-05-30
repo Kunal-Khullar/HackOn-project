@@ -69,7 +69,15 @@ const Login = () => {
           </Button>
 
         </div>
-       it 
+        <div className="google" id="g2">
+          <Button className="goog" onClick={() => fblog()}>
+            <img
+              className="googe"
+              src="https://img.icons8.com/fluent/48/000000/facebook-new.png" />
+
+            Sign In With Facebook
+          </Button>
+        </div>
         <h4>OR</h4>
         <div className="cred">
           <Form>
