@@ -169,13 +169,13 @@ dateArr.push(ele.date.slice(0,10))
         vitE: vitE,
       }
     });
-    Alert("Meal has been added")
+    alert("Meal has been added")
     console.log(data)
 
   };
   const addSleepAsync = async ()=>{
     const {data}= await addSleep()
-    Alert("Sleep has been recorded")
+    alert("Sleep has been recorded")
     console.log(data)
   }
   const ChangeWaterAsync=async()=>{
