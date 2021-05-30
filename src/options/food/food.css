@@ -27,7 +27,7 @@
     font-size: 1.4rem;
     line-height: 2rem;
     font-weight: 400;
-    opacity: 80%;
+    /* opacity: 80%; */
     border: 1px solid rgb(84,84,221);
 }
 .foodintake{
