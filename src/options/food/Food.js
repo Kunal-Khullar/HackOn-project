@@ -7,6 +7,7 @@ import { ADD_MEAL,ADD_SLEEP,ADD_WATER,GET_MEAL,GET_WATER,GET_SLEEP } from "../..
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./food.css";
 import { FormGroup } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 const Food = () => {
   const data = require("../../csvjson.json");
   const [daytime, setTime] = useState("");
@@ -168,11 +169,13 @@ dateArr.push(ele.date.slice(0,10))
         vitE: vitE,
       }
     });
+    Alert("Meal has been added")
     console.log(data)
 
   };
   const addSleepAsync = async ()=>{
     const {data}= await addSleep()
+    Alert("Sleep has been recorded")
     console.log(data)
   }
   const ChangeWaterAsync=async()=>{
