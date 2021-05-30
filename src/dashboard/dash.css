@@ -1,14 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
 .mid_container{
    /* height: 100vh; */
    background:#fffdf7
 }
 
 
-
-
+.navbar-brand{
+    font-family: 'Dancing Script';
+    font-weight: bolder;
+    font-size: 1.4rem;
+}
+html{
+    scroll-behavior: smooth;
+}
 
 .navs{
     margin-top: 5rem;
+}
+.navbar{
+    background: #ffeac5 !important;
 }
 .navbar a{
     color: black !important;

@@ -11,20 +11,20 @@ const Dashboard = () => {
     return (
         <HashRouter>
             <div>
-            <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Health_Prediction</Navbar.Brand>
+            <Navbar bg="light" expand="lg" fixed='top'>
+        <Navbar.Brand href="#home">WeCare</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavLink exact to="/graph">Graphs</NavLink>
-            <NavLink exact to="/">Food</NavLink>
-            <NavLink exact to="/pred">Prediction</NavLink>
+            <Nav.Link href="#graph">Analytics</Nav.Link>
+            <Nav.Link href="#food">Diet</Nav.Link>
+            <Nav.Link href="#pred">Prediction</Nav.Link>
             
           </Nav>
         
         </Navbar.Collapse>
       </Navbar>
-                    <div className='mid_container'>
+                    <div className='mid_container' >
                         <Row>
                            
                             <Col className='col-md-12'>

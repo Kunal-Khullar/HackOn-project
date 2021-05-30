@@ -22,7 +22,7 @@ mutation AddMeal(
   $carbs:Float,
   $email:String,
   $fats:Float,
-  $name:String,
+
   $omega3:Float,
   $proteins:Float,
   $vitA:Float,
@@ -41,7 +41,6 @@ mutation AddMeal(
       carbs:$carbs,
       email:$email,
       fats:$fats,
-      name:$name,
       omega3:$omega3,
       proteins:$proteins,
       vitA:$vitA,
@@ -132,7 +131,7 @@ query mealData(
   $email:String!
 ){
   getUserMealData(email:$email){
-    mealName
+    
     carbs
     proteins
     fats
@@ -190,4 +189,10 @@ query getSpo2(
     level
   }
 }
+`
+export const GET_PREDICTION = gql`
+query  prediction($email:String!){
+    predict(email:$email)
+  }
+
 `

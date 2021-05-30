@@ -145,7 +145,7 @@ dateArr.push(ele.date.slice(0,10))
     vitD = parseFloat(sentData.vitamin_d)
     vitE = parseFloat(sentData.vitamin_e)
     console.log(sentData)
-    console.log(Calcium, Iron, Potassium, Sodium, Zinc, carbs, fats, name, omega3, proteins, vitA, vitC, vitD, vitE)
+    console.log(Calcium, Iron, Potassium, Sodium, Zinc, carbs, fats,omega3, proteins, vitA, vitC, vitD, vitE)
     console.log(localStorage.getItem('email'))
     const { data } = await addMeal({
       variables: {
@@ -159,7 +159,7 @@ dateArr.push(ele.date.slice(0,10))
         carbs: carbs,
         email: localStorage.getItem('email'),
         fats: fats,
-        name: name,
+       
         omega3: omega3,
         proteins: proteins,
         vitA: vitA,
@@ -180,7 +180,7 @@ dateArr.push(ele.date.slice(0,10))
     console.log(data);
   }
   return (
-    <div>
+    <div id='food'>
       <Row>
         <Col id="left" className="col-md-4">
           <div className="foodintake">

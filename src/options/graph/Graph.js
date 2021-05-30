@@ -146,7 +146,7 @@ dateArr.push(ele.date.slice(0,10))
     return <canvas ref={ref2} id="charts" width="220" height="120"></canvas>;
   };
   return (
-    <div>
+    <div id='graph'>
       <div className="graph_container">
         <h2>Your Monthly Diet and Routine Analytics</h2>
         <Row>

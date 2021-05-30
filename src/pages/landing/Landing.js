@@ -29,7 +29,7 @@ const Landing = () => {
               <Col className="col-md-6">
                 <div className="info">
                 <h2>WeCare</h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be the industry's standard dummy text ever since the 1500s,</p>
+                  <p>Our website acts as a platform for users where they can evaluate their daily routines and get relevant information regarding the possible diseases/problems they might face in the near future.Right now, the users just have to input their meals,water intake and sleep hours and our model will try to predict based on the data input what problems the user might face. Users can also view their daily analytics. Our website serves as a medium for the users to see what they are doing wrong.</p>
             <Button className="mybtn">Register</Button>
                 </div>
                    </Col>
